@@ -67,6 +67,11 @@ const Game = () => {
         );
     });
 
+    let winningMove;
+    if(winner){
+        winningMove = `Winning move is move number ${gameHistory.length - 1}`
+    }
+
     let status;
     if (winner) {
         status = "Winner: " + winner;
@@ -85,6 +90,7 @@ const Game = () => {
             <div className="game-info">
                 <div>{status}</div>
                 <ol>{moves}</ol>
+                <div>{winningMove}</div>
             </div>
         </div>
     );
