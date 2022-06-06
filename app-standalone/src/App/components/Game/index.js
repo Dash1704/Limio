@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import Board from "../Board";
+//import ScoreBoard from "../ScoreBoard/scoreBoard";
 
-
-/**
- * A game of tic-tac-toe.
- */
 const Game = () => {
     const [gameHistory, setGameHistory] = useState([{ squares: Array(9).fill(null) }]); // Start of game
     const [stepNumber, setStepNumber] = useState(0);
     const [xIsNext, setXisNext] = useState(true);
+    //const [scores, setScores] = useState({xScore: 0, oScore: 0})
 
     const calculateWinner = (squares) => {
         const lines = [
@@ -67,6 +65,20 @@ const Game = () => {
         );
     });
 
+    // if(winner){
+    //   if(winner === 'X'){
+    //     let {xScore} = scores;
+    //     xScore += 1
+    //     setScores({...scores, xScore})
+    //     }
+    //   else{
+    //     let {oScore} = scores;
+    //     oScore += 1
+    //     setScores({...scores, oScore})
+    //     }
+    // }
+
+    //NEW CODE HERE
     let winningMove;
     if(winner){
         winningMove = `Winning move is move number ${gameHistory.length - 1}`
@@ -81,6 +93,7 @@ const Game = () => {
 
     return (
         <div className="game">
+             {/* <ScoreBoard scores={scores}/> */}
             <div className="game-board">
                 <Board
                     squares={current.squares}
